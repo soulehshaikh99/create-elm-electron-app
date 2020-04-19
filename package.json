@@ -1,0 +1,65 @@
+{
+  "name": "create-elm-electron-app",
+  "version": "0.1.0",
+  "description": "A simple starter project to get up and developing quickly with the blend of Elm and Electron JS for building a Native Desktop App on various OS Platforms like Windows, Linux and macOS using Electron Builder.",
+  "main": "main.js",
+  "author": "Souleh Shaikh",
+  "license": "MIT",
+  "private": false,
+  "build": {
+    "icon": "public/favicon.png",
+    "productName": "Elm and Electron App",
+    "files": [
+      "build/**/*",
+      "!build/favicon.png",
+      "main.js"
+    ]
+  },
+  "scripts": {
+    "start": "elm-app start",
+    "build": "elm-app build",
+    "test": "elm-app test",
+    "eject": "elm-app eject",
+    "electron": "wait-on http://localhost:3000 && electron .",
+    "electron-dev": "concurrently \"yarn start\" \"yarn electron\"",
+    "preelectron-pack": "yarn build",
+    "electron-pack": "electron-builder"
+  },
+  "dependencies": {
+    "electron-serve": "^1.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "electron": "^8.2.3",
+    "electron-builder": "^22.5.1",
+    "wait-on": "^4.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/soulehshaikh99/create-elm-electron-app"
+  },
+  "bugs": {
+    "url": "https://github.com/soulehshaikh99/create-elm-electron-app/issues"
+  },
+  "keywords": [
+    "application",
+    "concurrently",
+    "create-elm-app",
+    "desktop-app",
+    "electron",
+    "electron-builder",
+    "electron-serve",
+    "elm",
+    "elm-app",
+    "elm-starter",
+    "installed-app",
+    "linux",
+    "macos",
+    "native-app",
+    "npm",
+    "responsive-app",
+    "wait-on",
+    "windows",
+    "yarn"
+  ]
+}
