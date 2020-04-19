@@ -17,4 +17,4 @@ node_modules
 .DS_Store
 
 # Commit Comments File
-create-vue-electron-app-commits.txt
+create-elm-electron-app-commits.txt
