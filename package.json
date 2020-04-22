@@ -6,6 +6,13 @@
   "author": "Souleh Shaikh",
   "license": "MIT",
   "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/soulehshaikh99/create-elm-electron-app"
+  },
+  "bugs": {
+    "url": "https://github.com/soulehshaikh99/create-elm-electron-app/issues"
+  },
   "build": {
     "icon": "public/favicon.png",
     "productName": "Elm and Electron App",
@@ -34,17 +41,12 @@
     "electron-builder": "^22.5.1",
     "wait-on": "^4.0.2"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/soulehshaikh99/create-elm-electron-app"
-  },
-  "bugs": {
-    "url": "https://github.com/soulehshaikh99/create-elm-electron-app/issues"
-  },
   "keywords": [
     "application",
     "concurrently",
     "create-elm-app",
+    "cross-platform",
+    "css",
     "desktop-app",
     "electron",
     "electron-builder",
@@ -53,13 +55,18 @@
     "elm-app",
     "elm-starter",
     "elm-test",
+    "framework",
+    "html",
     "installed-app",
+    "javascript",
+    "javascript-framework",
     "linux",
     "macos",
     "native-app",
     "npm",
     "responsive-app",
     "wait-on",
+    "web-framework",
     "windows",
     "yarn"
   ]
