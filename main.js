@@ -20,7 +20,10 @@ function createWindow () {
         webPreferences: {
             nodeIntegration: true
         },
-		icon: isDev() ? `${path.join(__dirname, 'public/favicon.ico')}` : `${path.join(__dirname, 'build/favicon.ico')}`,
+        // Use this in development mode.
+        icon: isDev() ? path.join(process.cwd(), 'public/favicon.png') : path.join(__dirname, 'build/favicon.png'),
+        // Use this in production mode.
+        // icon: path.join(__dirname, 'build/favicon.png'),
         show: false
     });
 
@@ -32,6 +35,9 @@ function createWindow () {
         //Do not delete this statement, Use this piece of code when packaging app for production environment
 		loadURL(mainWindow);
     }
+    
+    // Uncomment the following line of code when app is ready to be packaged.
+    // loadURL(mainWindow);
 
     // Open the DevTools and also disable Electron Security Warning.
     // process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true;
