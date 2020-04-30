@@ -75,7 +75,7 @@ $ cd create-elm-electron-app
 
 #### 3) Download the app icon
 
-[favicon.png](https://raw.githubusercontent.com/soulehshaikh99/create-elm-electron-app/master/static/favicon.png) and place it in the static directory.
+[favicon.png](https://raw.githubusercontent.com/soulehshaikh99/create-elm-electron-app/master/public/favicon.png) and place it in the static directory.
 
 #### 4) Initailize project with your favourite package manager
 ```bash
