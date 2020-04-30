@@ -1,8 +1,8 @@
 <div align="center">
-<img alt="Electron Gatsby" src="https://raw.githubusercontent.com/soulehshaikh99/repo/master/svg/Electron_Gatsby.svg" width="550" />
+<img alt="Electron Elm" src="https://raw.githubusercontent.com/soulehshaikh99/repo/master/svg/Electron_Elm.svg" width="550" />
 </div>
 <br />
-The boilerplate code to get started creating Cross-platform Desktop Apps with Electron and Gatsby.js as front-end technology.
+The boilerplate code to get started creating Cross-platform Desktop Apps with Electron and Elm JS as front-end technology.
 <br />
 <br />
 <div align="center">
@@ -285,6 +285,4 @@ $ yarn electron-pack # or npm run electron-pack
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
 <br/>
 <h3>📋 License: </h3>
-Licensed under the <a href="https://github.com/soulehshaikh99/create-gatsby-electron-app/blob/master/LICENSE">MIT License</a>.
-<!-- # create-elm-electron-app
-A simple starter project to get up and developing quickly with the blend of Elm and Electron JS for building a Native Desktop App on various OS Platforms like Windows, Linux and macOS using Electron Builder. -->
+Licensed under the <a href="https://github.com/soulehshaikh99/create-elm-electron-app/blob/master/LICENSE">MIT License</a>.
