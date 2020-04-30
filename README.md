@@ -73,25 +73,28 @@ $ yarn create elm-app create-elm-electron-app
 $ cd create-elm-electron-app
 ```
 
-#### 3) Initailize project with your favourite package manager
+#### 3) Download the app icon
+
+[favicon.png](https://raw.githubusercontent.com/soulehshaikh99/create-elm-electron-app/master/static/favicon.png) and place it in the static directory.
+
+#### 4) Initailize project with your favourite package manager
 ```bash
 # set entry point to main.js
 $ yarn init # or npm init
 ```
 
-#### 4) Install Development Dependencies
+#### 5) Install Development Dependencies
 ```bash
 $ yarn add --dev electron electron-builder wait-on concurrently
 # npm i -D electron electron-builder wait-on concurrently
 ```
 
-#### 5) Install Production Dependency
+#### 6) Install Production Dependency
 ```bash
 $ yarn add electron-serve # or npm i electron-serve
 ```
 
-#### 6) Your dependencies should look something like this
-
+#### 7) Your dependencies should look something like this
 ```json
 "dependencies": {
   "electron-serve": "^1.0.0"
@@ -104,25 +107,25 @@ $ yarn add electron-serve # or npm i electron-serve
 }
 ```
 
-#### 7) Create .env file
+#### 8) Create .env file
 ```bash
 $ notepad.exe .env # Windows Users
 $ touch .env # Linux and macOS Users
 ```
 
-#### 8) Paste this in .env file
+#### 9) Paste this in .env file
 ```bash
 # This suppresses auto-opening `localhost:3000` on the browser
 BROWSER=none
 ```
 
-#### 9) Create main.js file (serves as entry point for Electron App's Main Process)
+#### 10) Create main.js file (serves as entry point for Electron App's Main Process)
 ```bash
 $ notepad.exe main.js # Windows Users
 $ touch main.js # Linux and macOS Users
 ```
 
-#### 10) Paste the below code in main.js file
+#### 11) Paste the below code in main.js file
 ```js
 // Modules to control application life and create native browser window
 const {app, BrowserWindow } = require('electron');
@@ -206,12 +209,11 @@ app.on('activate', function () {
 // code. You can also put them in separate files and require them here.
 ```
 
-#### 10) Add pre-build, electron, electron-dev, preelectron-pack and electron-pack scripts
+#### 12) Add pre-build, electron, electron-dev, preelectron-pack and electron-pack scripts
 
 ```bash
 # Add this scripts
-"prebuild": "yarn run clean",
-"electron": "wait-on http://localhost:8000 && electron .",
+"electron": "wait-on http://localhost:3000 && electron .",
 "electron-dev": "concurrently \"yarn run start\" \"yarn run electron\"",
 "preelectron-pack": "yarn run build",
 "electron-pack": "electron-builder"
