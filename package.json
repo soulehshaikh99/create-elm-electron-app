@@ -28,8 +28,8 @@
     "test": "elm-app test",
     "eject": "elm-app eject",
     "electron": "wait-on http://localhost:3000 && electron .",
-    "electron-dev": "concurrently \"yarn start\" \"yarn electron\"",
-    "preelectron-pack": "yarn build",
+    "electron-dev": "concurrently \"yarn run start\" \"yarn run electron\"",
+    "preelectron-pack": "yarn run build",
     "electron-pack": "electron-builder"
   },
   "dependencies": {
@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "concurrently": "^5.1.0",
+    "create-elm-app": "^4.2.14",
     "electron": "^8.2.3",
     "electron-builder": "^22.5.1",
     "wait-on": "^4.0.2"
