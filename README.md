@@ -17,7 +17,7 @@ The boilerplate code to get started creating Cross-platform Desktop Apps with El
 
 ## ✒️ Overview
 
-The aim of this project is to provide Web Developers using `gatsby.js` the power to create cross-platform desktop apps using `electron`. 
+The aim of this project is to provide Web Developers using `Elm JS` the power to create cross-platform desktop apps using `electron`. 
 
 #### 🧐 What packages does the project use?
 **`electron`** enables you to create desktop applications with pure JavaScript by providing a runtime with rich native (operating system) APIs. You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
@@ -26,9 +26,7 @@ The aim of this project is to provide Web Developers using `gatsby.js` the power
 
 **`electron-serve`** is used for Static file serving for Electron apps.
 
-**`gatsby.js`** is used as a front-end technology for this Project.
-
-**`gatsby-cli`** is used to perform common functionality, such as creating a Gatsby application based on a starter, spinning up a hot-reloading local development server, and more!
+**`elm`** is a  delightful language with features like No Runtime Exceptions, Great Performance, Enforced Semantic Versioning, Small Assets and Javascript Interoperability.
 
 **`concurrently`** is used to run multiple commands concurrently.
 
@@ -37,7 +35,7 @@ The aim of this project is to provide Web Developers using `gatsby.js` the power
 
 ## 🚀 Getting Started
 
-**Note:** If you wish to use npm over yarn then modify package.json by replacing `yarn` with `npm` in `prebuild`, `electron-dev` and `preelectron-pack` scripts.
+**Note:** If you wish to use npm over yarn then modify package.json by replacing `yarn` with `npm` in `electron-dev` and `preelectron-pack` scripts.
 But I strongly recommend using <em>yarn</em> as it is a better choice when compared to <em>npm</em>.
 
 ### 🤓 Use this boilerplate
@@ -45,12 +43,12 @@ But I strongly recommend using <em>yarn</em> as it is a better choice when compa
 ```bash
 # Clone the Project
 # GitHub CLI Users
-$ gh repo clone https://github.com/soulehshaikh99/create-gatsby-electron-app.git
+$ gh repo clone https://github.com/soulehshaikh99/create-elm-electron-app.git
 # or Normal Git Users
-$ git clone https://github.com/soulehshaikh99/create-gatsby-electron-app.git
+$ git clone https://github.com/soulehshaikh99/create-elm-electron-app.git
 
 # Switch location to the cloned directory
-$ cd create-gatsby-electron-app
+$ cd create-elm-electron-app
 
 # Install dependencies
 $ yarn # or npm install
