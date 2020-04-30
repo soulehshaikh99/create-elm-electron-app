@@ -42,7 +42,6 @@ But I strongly recommend using <em>yarn</em> as it is a better choice when compa
 ### 🤓 Use this boilerplate
 
 ```bash
-# Install Global De
 # Clone the Project
 # GitHub CLI Users
 $ gh repo clone https://github.com/soulehshaikh99/create-elm-electron-app.git
