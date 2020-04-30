@@ -17,16 +17,17 @@ The boilerplate code to get started creating Cross-platform Desktop Apps with El
 
 ## ✒️ Overview
 
-The aim of this project is to provide Web Developers using `Elm JS` the power to create cross-platform desktop apps using `electron`. 
+The aim of this project is to provide Web Developers using `Elm JS` the power to create cross-platform desktop apps using `electron`.
 
 #### 🧐 What packages does the project use?
+
 **`electron`** enables you to create desktop applications with pure JavaScript by providing a runtime with rich native (operating system) APIs. You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
 
 **`electron-builder`** is used as a complete solution to package and build a ready for distribution (supports Numerous target formats) Electron app with "auto update" support out of the box.
 
 **`electron-serve`** is used for Static file serving for Electron apps.
 
-**`elm`** is a  delightful language with features like No Runtime Exceptions, Great Performance, Enforced Semantic Versioning, Small Assets and Javascript Interoperability.
+**`elm`** is a delightful language with features like No Runtime Exceptions, Great Performance, Enforced Semantic Versioning, Small Assets and Javascript Interoperability.
 
 **`concurrently`** is used to run multiple commands concurrently.
 
@@ -63,12 +64,14 @@ $ yarn electron-pack # or npm run electron-pack
 ### 💫 Create this boilerplate from scratch (Manual Setup)
 
 #### 1) Create an Elm project using scaffolding tool create-elm-app.
+
 ```bash
 $ yarn create elm-app create-elm-electron-app
 # npx create-elm-app create-elm-electron-app
 ```
 
 #### 2) Change Directory
+
 ```bash
 $ cd create-elm-electron-app
 ```
@@ -78,23 +81,27 @@ $ cd create-elm-electron-app
 [favicon.png](https://raw.githubusercontent.com/soulehshaikh99/create-elm-electron-app/master/public/favicon.png) and place it in the static directory.
 
 #### 4) Initailize project with your favourite package manager
+
 ```bash
 # set entry point to main.js
 $ yarn init # or npm init
 ```
 
 #### 5) Install Development Dependencies
+
 ```bash
 $ yarn add --dev electron electron-builder wait-on concurrently
 # npm i -D electron electron-builder wait-on concurrently
 ```
 
 #### 6) Install Production Dependency
+
 ```bash
 $ yarn add electron-serve # or npm i electron-serve
 ```
 
 #### 7) Your dependencies should look something like this
+
 ```json
 "dependencies": {
   "electron-serve": "^1.0.0"
@@ -108,146 +115,147 @@ $ yarn add electron-serve # or npm i electron-serve
 ```
 
 #### 8) Create .env file
+
 ```bash
 $ notepad.exe .env # Windows Users
 $ touch .env # Linux and macOS Users
 ```
 
 #### 9) Paste this in .env file
+
 ```bash
 # This suppresses auto-opening `localhost:3000` on the browser
 BROWSER=none
 ```
 
 #### 10) Create main.js file (serves as entry point for Electron App's Main Process)
+
 ```bash
 $ notepad.exe main.js # Windows Users
 $ touch main.js # Linux and macOS Users
 ```
 
 #### 11) Paste the below code in main.js file
+
 ```js
 // Modules to control application life and create native browser window
-const {app, BrowserWindow } = require('electron');
-const path = require('path');
-const serve = require('electron-serve');
-const loadURL = serve({directory: 'build'});
+const { app, BrowserWindow } = require("electron");
+const path = require("path");
+const serve = require("electron-serve");
+const loadURL = serve({ directory: "build" });
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 
 function isDev() {
-    return !app.isPackaged;
+  return !app.isPackaged;
 }
 
-function createWindow () {
-    // Create the browser window.
-    mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600,
-        webPreferences: {
-            nodeIntegration: true
-        },
-        // Use this in development mode.
-        icon: isDev() ? path.join(process.cwd(), 'public/favicon.png') : path.join(__dirname, 'build/favicon.png'),
-        // Use this in production mode.
-        // icon: path.join(__dirname, 'build/favicon.png'),
-        show: false
-    });
+function createWindow() {
+  // Create the browser window.
+  mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true,
+    },
+    // Use this in development mode.
+    icon: isDev()
+      ? path.join(process.cwd(), "public/favicon.png")
+      : path.join(__dirname, "build/favicon.png"),
+    // Use this in production mode.
+    // icon: path.join(__dirname, 'build/favicon.png'),
+    show: false,
+  });
 
-    // This block of code is intended for development purpose only.
-    // Delete this entire block of code when you are ready to package the application.
-    if(isDev()) {
-        mainWindow.loadURL('http://localhost:3000/');
-    } else {
-        //Do not delete this statement, Use this piece of code when packaging app for production environment
-		loadURL(mainWindow);
-    }
-    
-    // Uncomment the following line of code when app is ready to be packaged.
-    // loadURL(mainWindow);
+  // This block of code is intended for development purpose only.
+  // Delete this entire block of code when you are ready to package the application.
+  if (isDev()) {
+    mainWindow.loadURL("http://localhost:3000/");
+  } else {
+    //Do not delete this statement, Use this piece of code when packaging app for production environment
+    loadURL(mainWindow);
+  }
 
-    // Open the DevTools and also disable Electron Security Warning.
-    // process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true;
-    // mainWindow.webContents.openDevTools();
+  // Uncomment the following line of code when app is ready to be packaged.
+  // loadURL(mainWindow);
 
-    // Emitted when the window is closed.
-    mainWindow.on('closed', function () {
-        // Dereference the window object, usually you would store windows
-        // in an array if your app supports multi windows, this is the time
-        // when you should delete the corresponding element.
-        mainWindow = null
-    });
+  // Open the DevTools and also disable Electron Security Warning.
+  // process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true;
+  // mainWindow.webContents.openDevTools();
 
-    // Emitted when the window is ready to be shown
-    // This helps in showing the window gracefully.
-    mainWindow.once('ready-to-show', () => {
-        mainWindow.show()
-    });
+  // Emitted when the window is closed.
+  mainWindow.on("closed", function () {
+    // Dereference the window object, usually you would store windows
+    // in an array if your app supports multi windows, this is the time
+    // when you should delete the corresponding element.
+    mainWindow = null;
+  });
+
+  // Emitted when the window is ready to be shown
+  // This helps in showing the window gracefully.
+  mainWindow.once("ready-to-show", () => {
+    mainWindow.show();
+  });
 }
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow);
+app.on("ready", createWindow);
 
 // Quit when all windows are closed.
-app.on('window-all-closed', function () {
-    // On macOS it is common for applications and their menu bar
-    // to stay active until the user quits explicitly with Cmd + Q
-    if (process.platform !== 'darwin') app.quit()
+app.on("window-all-closed", function () {
+  // On macOS it is common for applications and their menu bar
+  // to stay active until the user quits explicitly with Cmd + Q
+  if (process.platform !== "darwin") app.quit();
 });
 
-app.on('activate', function () {
-    // On macOS it's common to re-create a window in the app when the
-    // dock icon is clicked and there are no other windows open.
-    if (mainWindow === null) createWindow()
+app.on("activate", function () {
+  // On macOS it's common to re-create a window in the app when the
+  // dock icon is clicked and there are no other windows open.
+  if (mainWindow === null) createWindow();
 });
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 ```
 
-#### 12) Add pre-build, electron, electron-dev, preelectron-pack and electron-pack scripts
+#### 12) Add scripts
 
 ```bash
-# Add this scripts
-"electron": "wait-on http://localhost:3000 && electron .",
-"electron-dev": "concurrently \"yarn run start\" \"yarn run electron\"",
-"preelectron-pack": "yarn run build",
-"electron-pack": "electron-builder"
-
-# You should end up with something similar
 "scripts": {
-  "start": "gatsby develop",
-  "serve": "gatsby serve",
-  "prebuild": "yarn run clean",
-  "build": "gatsby build",
-  "clean": "gatsby clean",
-  "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-  "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-  "electron": "wait-on http://localhost:8000 && electron .",
-  "electron-dev": "concurrently \"yarn run start\" \"yarn run electron\"",
-  "preelectron-pack": "yarn run build",
+  "start": "elm-app start",
+  "build": "elm-app build",
+  "test": "elm-app test",
+  "eject": "elm-app eject",
+  "electron": "wait-on http://localhost:3000 && electron .",
+  "electron-dev": "concurrently \"yarn start\" \"yarn electron\"",
+  "preelectron-pack": "yarn build",
   "electron-pack": "electron-builder"
 }
 ```
+
 #### 11) Add the following Electron Configuration in package.json
+
 **Note:** build configuration is used by electron-builder, modify it if you wish to add more packaging and native distribution options for different OS Platforms.
-```json
-"main": "main.js",
+
+```bash
+"main": "main.js", # please verify entry point is set to main.js 
 "build": {
-  "icon": "src/images/gatsby-icon.png",
-  "productName": "Gatsby and Electron App",
+  "icon": "public/favicon.png",
+  "productName": "Elm and Electron App",
   "files": [
-    "public/**/*",
+    "build/**/*",
+    "!build/favicon.png",
     "main.js"
   ]
-}
+},
 ```
 
 #### 12) Test drive your app
+
 ```bash
 # Run your app
 $ yarn electron-dev # or npm run electron-dev
@@ -257,13 +265,15 @@ $ yarn electron-pack # or npm run electron-pack
 ```
 
 ### 💯 Result
+
 <div align="center">
-<img alt="Electron Gatsby" src="https://raw.githubusercontent.com/soulehshaikh99/repo/master/png/create-gatsby-electron-app.png" />
+<img alt="Electron Gatsby" src="https://raw.githubusercontent.com/soulehshaikh99/repo/master/png/create-elm-electron-app.png" />
 </div>
 
 <h3>😍 Made with ❤️ from Souleh</h3>
 
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
 <br/>
+
 <h3>📋 License: </h3>
 Licensed under the <a href="https://github.com/soulehshaikh99/create-elm-electron-app/blob/master/LICENSE">MIT License</a>.
