@@ -62,55 +62,35 @@ $ yarn electron-pack # or npm run electron-pack
 
 ### 💫 Create this boilerplate from scratch (Manual Setup)
 
-#### 1) Install `gatsby-cli` globally
+#### 1) Create an Elm project using scaffolding tool create-elm-app.
 ```bash
-$ yarn global add gatsby-cli # or npm i -g gatsby-cli
+$ yarn create elm-app create-elm-electron-app
+# npx create-elm-app create-elm-electron-app
 ```
 
-#### 2) Create new project
+#### 2) Change Directory
 ```bash
-$ gatsby new create-gatsby-electron-app
+$ cd create-elm-electron-app
 ```
 
-#### 3) Change Directory
+#### 3) Initailize project with your favourite package manager
 ```bash
-$ cd create-gatsby-electron-app
+# set entry point to main.js
+$ yarn init # or npm init
 ```
 
-#### 4) Move all dependencies to devDependencies using IDE / Text Editor
-
-```bash
-# It should look something like this
-"dependencies": {},
-"devDependencies": {
-  "gatsby": "^2.20.35",
-  "gatsby-image": "^2.3.5",
-  "gatsby-plugin-manifest": "^2.3.7",
-  "gatsby-plugin-offline": "^3.1.5",
-  "gatsby-plugin-react-helmet": "^3.2.5",
-  "gatsby-plugin-sharp": "^2.5.7",
-  "gatsby-source-filesystem": "^2.2.5",
-  "gatsby-transformer-sharp": "^2.4.7",
-  "prettier": "2.0.4",
-  "prop-types": "^15.7.2",
-  "react": "^16.12.0",
-  "react-dom": "^16.12.0",
-  "react-helmet": "^6.0.0"
-}
-```
-
-#### 5) Install Development Dependencies
+#### 4) Install Development Dependencies
 ```bash
 $ yarn add --dev electron electron-builder wait-on concurrently
 # npm i -D electron electron-builder wait-on concurrently
 ```
 
-#### 6) Install Production Dependency
+#### 5) Install Production Dependency
 ```bash
 $ yarn add electron-serve # or npm i electron-serve
 ```
 
-#### 7) Your dependencies should look something like this
+#### 6) Your dependencies should look something like this
 
 ```json
 "dependencies": {
@@ -120,36 +100,35 @@ $ yarn add electron-serve # or npm i electron-serve
   "concurrently": "^5.2.0",
   "electron": "^8.2.3",
   "electron-builder": "^22.5.1",
-  "gatsby": "^2.20.35",
-  "gatsby-image": "^2.3.5",
-  "gatsby-plugin-manifest": "^2.3.7",
-  "gatsby-plugin-offline": "^3.1.5",
-  "gatsby-plugin-react-helmet": "^3.2.5",
-  "gatsby-plugin-sharp": "^2.5.7",
-  "gatsby-source-filesystem": "^2.2.5",
-  "gatsby-transformer-sharp": "^2.4.7",
-  "prettier": "2.0.4",
-  "prop-types": "^15.7.2",
-  "react": "^16.12.0",
-  "react-dom": "^16.12.0",
-  "react-helmet": "^6.0.0",
   "wait-on": "^4.0.2"
 }
 ```
 
-#### 8) Create main.js file (serves as entry point for Electron App's Main Process)
+#### 7) Create .env file
+```bash
+$ notepad.exe .env # Windows Users
+$ touch .env # Linux and macOS Users
+```
+
+#### 8) Paste this in .env file
+```bash
+# This suppresses auto-opening `localhost:3000` on the browser
+BROWSER=none
+```
+
+#### 9) Create main.js file (serves as entry point for Electron App's Main Process)
 ```bash
 $ notepad.exe main.js # Windows Users
 $ touch main.js # Linux and macOS Users
 ```
 
-#### 9) Paste the below code in main.js file
+#### 10) Paste the below code in main.js file
 ```js
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, dialog } = require('electron');
+const {app, BrowserWindow } = require('electron');
 const path = require('path');
 const serve = require('electron-serve');
-const loadURL = serve({ directory: 'public' });
+const loadURL = serve({directory: 'build'});
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -159,7 +138,7 @@ function isDev() {
     return !app.isPackaged;
 }
 
-function createWindow() {
+function createWindow () {
     // Create the browser window.
     mainWindow = new BrowserWindow({
         width: 800,
@@ -168,18 +147,19 @@ function createWindow() {
             nodeIntegration: true
         },
         // Use this in development mode.
-        icon: isDev() ? path.join(process.cwd(), 'src/images/gatsby-icon.png') : path.join(__dirname, 'public/icons/icon-512x512.png'),
+        icon: isDev() ? path.join(process.cwd(), 'public/favicon.png') : path.join(__dirname, 'build/favicon.png'),
         // Use this in production mode.
-        // icon: path.join(__dirname, 'public/icons/icon-512x512.png'),
+        // icon: path.join(__dirname, 'build/favicon.png'),
         show: false
     });
 
     // This block of code is intended for development purpose only.
     // Delete this entire block of code when you are ready to package the application.
-    if (isDev()) {
-        mainWindow.loadURL('http://localhost:8000/');
+    if(isDev()) {
+        mainWindow.loadURL('http://localhost:3000/');
     } else {
-        loadURL(mainWindow);
+        //Do not delete this statement, Use this piece of code when packaging app for production environment
+		loadURL(mainWindow);
     }
     
     // Uncomment the following line of code when app is ready to be packaged.
@@ -221,6 +201,7 @@ app.on('activate', function () {
     // dock icon is clicked and there are no other windows open.
     if (mainWindow === null) createWindow()
 });
+
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 ```
