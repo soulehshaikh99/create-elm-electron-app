@@ -78,7 +78,7 @@ $ cd create-elm-electron-app
 
 #### 3) Download the app icon
 
-[favicon.png](https://raw.githubusercontent.com/soulehshaikh99/create-elm-electron-app/master/public/favicon.png) and place it in the static directory.
+[favicon.png](https://raw.githubusercontent.com/soulehshaikh99/create-elm-electron-app/master/public/favicon.png) and place it in the public directory.
 
 #### 4) Initailize project with your favourite package manager
 
@@ -124,6 +124,7 @@ $ touch .env # Linux and macOS Users
 #### 9) Paste this in .env file
 
 ```bash
+# As `create-elm-app` is based on `create-react-app` we can configure things.
 # This suppresses auto-opening `localhost:3000` on the browser
 BROWSER=none
 ```
