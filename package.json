@@ -1,0 +1,68 @@
+{
+  "name": "create-elm-electron-app",
+  "version": "0.1.0",
+  "description": "A simple starter project to get up and developing quickly with the blend of Elm and Electron JS for building a Native Desktop App on various OS Platforms like Windows, Linux and macOS using Electron Builder.",
+  "main": "main.js",
+  "author": "Souleh Shaikh <author.souleh@thegeekytutor.com>",
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/soulehshaikh99/create-elm-electron-app"
+  },
+  "bugs": {
+    "url": "https://github.com/soulehshaikh99/create-elm-electron-app/issues"
+  },
+  "build": {
+    "icon": "public/favicon.png",
+    "productName": "Elm and Electron App",
+    "files": [
+      "build/**/*",
+      "main.js"
+    ],
+    "win": {},
+    "linux": {},
+    "mac": {}
+  },
+  "scripts": {
+    "start": "elm-app start",
+    "build": "elm-app build",
+    "test": "elm-app test",
+    "eject": "elm-app eject",
+    "electron": "wait-on http://localhost:3000 && electron .",
+    "electron-dev": "concurrently \"yarn start\" \"yarn electron\"",
+    "preelectron-pack": "yarn build",
+    "electron-pack": "electron-builder"
+  },
+  "dependencies": {
+    "electron-serve": "^1.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "electron": "^9.2.1",
+    "electron-builder": "^22.8.0",
+    "wait-on": "^5.2.0"
+  },
+  "keywords": [
+    "cross-platform",
+    "native-app",
+    "installed-app",
+    "desktop-applications",
+    "windows",
+    "linux",
+    "macos",
+    "html",
+    "css",
+    "javascript",
+    "front-end",
+    "elm",
+    "elm-app",
+    "elm-starter",
+    "electron",
+    "electron-builder",
+    "electron-serve",
+    "concurrently",
+    "wait-on",
+    "webapp"
+  ]
+}
