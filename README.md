@@ -1,5 +1,5 @@
 <div align="center">
-<img alt="Electron Elm" src="https://raw.githubusercontent.com/soulehshaikh99/repo/master/svg/Electron_Elm.svg" width="550" />
+<img alt="Electron Elm Crossover Banner" src="https://raw.githubusercontent.com/soulehshaikh99/assets/master/create-electron-framework-app/readme/svg/Electron_Elm.svg" width="550" />
 </div>
 <br />
 The boilerplate code to get started creating Cross-platform Desktop Apps with Electron and Elm JS as front-end technology.
@@ -17,7 +17,7 @@ The boilerplate code to get started creating Cross-platform Desktop Apps with El
 
 ## ✒️ Overview
 
-The aim of this project is to provide Web Developers using `Elm JS` the power to create cross-platform desktop apps using `electron`.
+The aim of this project is to provide Web Developers using `elm` the power to create cross-platform desktop apps using `electron`.
 
 #### 🧐 What packages does the project use?
 
@@ -43,7 +43,14 @@ But I strongly recommend using <em>yarn</em> as it is a better choice when compa
 
 ```bash
 # Clone the Project
-# GitHub CLI Users
+
+# Install create-elm-app as global dependency.
+$ yarn global add create-elm-app
+# npm -g i create-elm-app
+
+# Use degit scaffolding tool
+$ npx degit soulehshaikh99/create-elm-electron-app create-elm-electron-app
+# or GitHub CLI Users
 $ gh repo clone https://github.com/soulehshaikh99/create-elm-electron-app.git
 # or Normal Git Users
 $ git clone https://github.com/soulehshaikh99/create-elm-electron-app.git
@@ -76,49 +83,53 @@ $ yarn create elm-app create-elm-electron-app
 $ cd create-elm-electron-app
 ```
 
-#### 3) Download the app icon
-
-[favicon.png](https://raw.githubusercontent.com/soulehshaikh99/create-elm-electron-app/master/public/favicon.png) and place it in the public directory.
-
-#### 4) Initailize project with your favourite package manager
+#### 3) Initialize project with your favorite package manager
 
 ```bash
 # set entry point to main.js
 $ yarn init # or npm init
 ```
 
-#### 5) Install Development Dependencies
+#### 4) Install Development Dependencies
 
 ```bash
 $ yarn add --dev electron electron-builder wait-on concurrently
 # npm i -D electron electron-builder wait-on concurrently
 ```
 
-#### 6) Install Production Dependency
+#### 5) Install Production Dependency
 
 ```bash
 $ yarn add electron-serve # or npm i electron-serve
 ```
 
-#### 7) Your dependencies should look something like this
+#### 6) Your dependencies should look something like this
 
 ```json
 "dependencies": {
   "electron-serve": "^1.0.0"
 },
 "devDependencies": {
-  "concurrently": "^5.2.0",
-  "electron": "^8.2.3",
-  "electron-builder": "^22.5.1",
-  "wait-on": "^4.0.2"
+  "concurrently": "^5.3.0",
+  "electron": "^9.2.1",
+  "electron-builder": "^22.8.0",
+  "wait-on": "^5.2.0"
 }
 ```
+
+#### 7) Download the app icon
+
+[favicon.png](https://raw.githubusercontent.com/soulehshaikh99/assets/master/framework-icons/elm/favicon.png) and place it in the public directory.
 
 #### 8) Create .env file
 
 ```bash
-$ notepad.exe .env # Windows Users
-$ touch .env # Linux and macOS Users
+# Windows Users
+$ fsutil file createnew .env 0
+# notepad .env
+
+# Linux and macOS Users
+$ touch .env
 ```
 
 #### 9) Paste this in .env file
@@ -132,8 +143,12 @@ BROWSER=none
 #### 10) Create main.js file (serves as entry point for Electron App's Main Process)
 
 ```bash
-$ notepad.exe main.js # Windows Users
-$ touch main.js # Linux and macOS Users
+# Windows Users
+$ fsutil file createnew main.js 0
+# notepad main.js 
+
+# Linux and macOS Users
+$ touch main.js
 ```
 
 #### 11) Paste the below code in main.js file
@@ -238,7 +253,7 @@ app.on("activate", function () {
 }
 ```
 
-#### 11) Add the following Electron Configuration in package.json
+#### 11) Add the following configuration in `package.json`
 
 **Note:** build configuration is used by electron-builder, modify it if you wish to add more packaging and native distribution options for different OS Platforms.
 
@@ -249,9 +264,11 @@ app.on("activate", function () {
   "productName": "Elm and Electron App",
   "files": [
     "build/**/*",
-    "!build/favicon.png",
     "main.js"
-  ]
+  ],
+  "win": {},  # Windows Specific Configuration
+  "linux": {},  # Linux Specific Configuration
+  "mac": {}  # MacOs Specific Configuration
 },
 ```
 
@@ -268,7 +285,7 @@ $ yarn electron-pack # or npm run electron-pack
 ### 💯 Result
 
 <div align="center">
-<img alt="Electron Gatsby" src="https://raw.githubusercontent.com/soulehshaikh99/repo/master/png/create-elm-electron-app.png" />
+<img alt="Electron Elm Window Screeenshot" src="https://raw.githubusercontent.com/soulehshaikh99/assets/master/create-electron-framework-app/readme/png/create-elm-electron-app.png" />
 </div>
 
 <h3>😍 Made with ❤️ from Souleh</h3>
